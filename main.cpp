@@ -4,9 +4,17 @@
 int main()
 {
 
+    std::cout << "Game Start!!! \n";
+   
+
     bool playerTurn = true;
     bool tie = false;
     int rounds = 0;
+    char comp;
+
+
+    std::cout << "Please select wether you want to play against another player or the computer (p or c): ";
+    std::cin >> comp;
 
     Player player1;
     player1.letter = 'X';
@@ -16,9 +24,15 @@ int main()
     player2.letter = 'O';
     player2.player = 2;
 
+    if (comp == 'c' || comp == 'C')
+    {
+        player2.computer = true;
+    }
+
     char grid[3][3] = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
 
-    std::cout << "Game Start!!! \n";
+    
+    
     drawGrid(grid);
 
     while (player1.winner == false && player2.winner == false && tie == false)
